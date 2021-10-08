@@ -1,21 +1,23 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import './Data.css';
 
 const Data = (props) => {
-    const {upcoming, launch_year, nationality, mission_name, launch_success, launch_date_utc, launch_date_local,  mission_patch, mission_patch_small, links} = props.data;
+    const {launch_year, mission_name, launch_date_local,  mission_patch, links, launch_success, upcoming} = props.data;
     return (
         <div>
             <Col>
-                <Card>
+                <Card className="bg-dark card-color rounded-3 shadow-lg p-3 mb-5  rounded"  >
                     <Card.Img variant="top" src={links.mission_patch} />
                     <Card.Body>
                         <Card.Title><h1>{mission_name}</h1></Card.Title>
                         <Card.Text>
-                           <h3>  {upcoming} </h3>
-                           <h5>Launch Date : {launch_date_local} </h5>
-                           <h5>Launch Year: {launch_year}</h5>
                            
-                           <h5>Launch Status : {launch_success}</h5>
+                           <h5> <span className="card-text">Launch Date:</span> {launch_date_local} </h5>
+                           <h5> <span className="card-text">Launch Year:</span> {launch_year}</h5>
+                           
+                           <h5> <span className="card-text">Launch Status:</span> {launch_success} </h5>
+                           <h5> <span className="card-text">Is it upcoming?</span> {upcoming}</h5>
                         </Card.Text>
                     </Card.Body>
                 </Card>

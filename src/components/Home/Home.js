@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Form, FormControl, Nav, Navbar, Row } from 'react-bootstrap';
 
 import Data from '../Data/Data';
+import './Home.css';
 
 const Home = () => {
     const [dataApi, setDataApi] = useState([]);
@@ -14,7 +15,7 @@ const Home = () => {
             .then(data => setDataApi(data))
     }, [])
     return (
-        <div>
+        <div className="body">
             <header>
                 <Navbar bg="dark" variant="dark" expand="lg">
                     <Navbar.Brand href="#">Technext test</Navbar.Brand>
@@ -40,7 +41,7 @@ const Home = () => {
                     </Navbar.Collapse>
                 </Navbar>
             </header>
-            <div className="w-75 mx-auto mt-5">
+            <div className=" w-75 mx-auto mt-5">
                 <Row xs={1} md={2} className="g-4">
                   {
                       dataApi.map(dt => <Data 
