@@ -8,7 +8,7 @@ const Data = (props) => {
         <div>
             <Col>
                 <Card className="bg-dark card-color rounded-3 shadow-lg p-3 mb-5  rounded"  >
-                    <Card.Img variant="top" src={links.mission_patch} />
+                    <Card.Img className="card-img" variant="top" src={links.mission_patch} />
                     <Card.Body>
                         <Card.Title><h1>{mission_name}</h1></Card.Title>
                         <Card.Text>
