@@ -9,11 +9,20 @@ import './Home.css';
 
 const Home = () => {
     const [dataApi, setDataApi] = useState([]);
+    const [displayResults, setDisplayResults] = useState([])
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches')
             .then(res => res.json())
             .then(data => setDataApi(data))
     }, [])
+
+       const handleSearch = event => {
+          const searchText = event.target.value;
+          const searchResult = dataApi.filter(d => d.rocket.rocket_name.includes(searchText));
+          setDisplayResults(searchResult);
+          console.log(searchResult.length);
+       }
+
     return (
         <div className="body">
             <header>
@@ -30,9 +39,10 @@ const Home = () => {
                             <Nav.Link href="#action2">About</Nav.Link>
                         </Nav>
                         <Form className="d-flex">
-                            <FormControl
+                            <input
+                            onChange={ handleSearch }
                                 type="search"
-                                placeholder="Search"
+                                placeholder="Search by Rocket name"
                                 className="mr-2"
                                 aria-label="Search"
                             />
@@ -44,7 +54,7 @@ const Home = () => {
             <div className=" w-75 mx-auto mt-5">
                 <Row xs={1} md={2} className="g-4">
                   {
-                      dataApi.map(dt => <Data 
+                      displayResults.map(dt => <Data 
                         key={'flight_number'}
                         data={dt} ></Data>)
                   }
