@@ -14,14 +14,17 @@ const Home = () => {
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches')
             .then(res => res.json())
-            .then(data => setDataApi(data))
+            .then(data => {
+                setDataApi(data)
+                setDisplayResults(data)
+            })
     }, [])
 
        const handleSearch = event => {
           const searchText = event.target.value;
           const searchResult = dataApi.filter(d => d.rocket.rocket_name.toLowerCase().includes(searchText.toLowerCase()));
           setDisplayResults(searchResult);
-          console.log(searchResult.length);
+          
        }
 
     return (
