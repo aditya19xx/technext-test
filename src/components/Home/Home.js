@@ -36,7 +36,7 @@ const Home = () => {
                                 className="mr-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-success">Search</Button>
+                            <Button  variant="outline-success">Search</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
@@ -45,7 +45,7 @@ const Home = () => {
                 <Row xs={1} md={2} className="g-4">
                   {
                       dataApi.map(dt => <Data 
-                        key={"flight_number"}
+                        key={'flight_number'}
                         data={dt} ></Data>)
                   }
                 </Row>

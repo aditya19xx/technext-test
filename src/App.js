@@ -9,6 +9,9 @@ function App() {
      <h1>Technext Test</h1>
      <BrowserRouter>
      <Switch>
+       <Route exact path="/">
+         <Home></Home>
+       </Route>
        <Route path="/home">
          <Home></Home>
        </Route>
