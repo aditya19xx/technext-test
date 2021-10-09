@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Form, FormControl, Nav, Navbar, Row } from 'react-bootstrap';
 
 import Data from '../Data/Data';
+import Footer from '../Footer/Footer';
 import './Home.css';
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
 
        const handleSearch = event => {
           const searchText = event.target.value;
-          const searchResult = dataApi.filter(d => d.rocket.rocket_name.includes(searchText));
+          const searchResult = dataApi.filter(d => d.rocket.rocket_name.toLowerCase().includes(searchText.toLowerCase()));
           setDisplayResults(searchResult);
           console.log(searchResult.length);
        }
@@ -60,6 +61,7 @@ const Home = () => {
                   }
                 </Row>
             </div>
+            <Footer></Footer>
         </div>
 
     );
