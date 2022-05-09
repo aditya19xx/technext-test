@@ -10,6 +10,10 @@
 * React Bootstrap
 * Google Fonts
 
+### Deploy
+* created build folder with 'npm run build'
+* deployed on netlify
+
 ### Code Editor
 
 * Vs Code
